@@ -1,0 +1,14 @@
+<%- include("partials/header");
+
+<form class="" action="freeSigns" method="post">
+
+  <% signTypes.forEach(function(sign){ %>
+    <div>
+      <img class="signImg" src="/images/<%=sign%>.png" alt="">
+      <input type="number" value="0" name="<%=sign%>" min="0" max="25">
+    </div>
+  <% }); %>
+  <button type="submit" name="button">submit</button>
+</form>
+
+<%- include("partials/footer"); -%>

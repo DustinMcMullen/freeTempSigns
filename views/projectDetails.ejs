@@ -1,0 +1,99 @@
+<%- include("partials/header"); -%>
+
+
+
+<body class="bg-light">
+    <div class="container">
+  <div class="py-5 text-center">
+    <img class="d-block mx-auto mb-4" src="images/archwayLogo.png" alt="" width="72" height="72">
+    <h2>Checkout form</h2>
+    <p class="lead">Please provide some information to help us better serve you.</p>
+  </div>
+
+
+<!-- Cart -->
+  <div class="row">
+    <div class="col-md-4 order-md-2 mb-4">
+      <h4 class="d-flex justify-content-between align-items-center mb-3">
+        <span class="text-muted">Your requested signs</span>
+        <span class="badge badge-secondary badge-pill"><%= requestCount %></span>
+      </h4>
+      <ul class="list-group mb-3">
+        <% signsRequestedArray.forEach(([key, value]) => { %>
+        <li class="list-group-item d-flex justify-content-between lh-condensed">
+          <div>
+            <img class="infoSignImg" src="images/<%= key %>.png">
+          </div>
+          <span class="text-muted"><%= value %></span>
+        </li>
+        <% }); %>
+        <li class="list-group-item d-flex justify-content-between">
+          <span>Total (USD)</span>
+          <strong>$0</strong>
+        </li>
+      </ul>
+    </div>
+
+
+    <!-- Customer Info Form -->
+    <div class="col-md-8 order-md-1">
+      <h4 class="mb-3">Contact Information</h4>
+
+      <form class="needs-validation" action="projectDetails" method="post">
+        <input type="hidden" name="signCount" value="<%= requestCount %>">
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="firstName">First name</label>
+            <input type="text" class="form-control" name="firstName" placeholder="" value="" required>
+          </div>
+
+          <div class="col-md-6 mb-3">
+            <label for="lastName">Last name</label>
+            <input type="text" class="form-control" name="lastName" placeholder="" value="" required="">
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="customerEmail">Email</label>
+          <input type="email" class="form-control" name="customerEmail" placeholder="you@example.com" required="">
+          <p>* Please doublecheck your email before submitting</p>
+        </div>
+
+        <hr class="mb-4">
+        <h4 class="mb-3">Project Details</h4>
+
+        <div class="mb-3">
+          <label for="projectName">Project Name</label>
+          <input type="text" class="form-control" name="projectName" placeholder="" required="">
+        </div>
+
+        <div class="mb-3">
+          <label for="projectDate">Requested date for signage</label>
+          <input type="date" class="form-control" name="projectName" placeholder="" required="" min="<%= todaysDate %>">
+        </div>
+
+        <div class="custom-control custom-checkbox">
+          <input type="checkbox" class="custom-control-input" id="haveSignage" name="haveSignage">
+          <label class="custom-control-label" for="haveSignage">I already have final signage figured out for this project.</label>
+        </div>
+
+        <div class="custom-control custom-checkbox">
+          <input type="checkbox" class="custom-control-input" id="needSignage" name="needSignage">
+          <label class="custom-control-label" for="needSignage">I'm interested in getting a quote for permenant signage.</label>
+        </div>
+        <hr class="mb-4">
+
+        <button class="btn btn-primary btn-lg btn-block" type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
+
+
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+      <script>window.jQuery || document.write('<script src="/docs/4.5/assets/js/vendor/jquery.slim.min.js"><\/script>')</script><script src="/docs/4.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+        <script src="form-validation.js"></script>
+
+
+        <%- include("partials/footer"); -%>

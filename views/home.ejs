@@ -1,0 +1,58 @@
+<%- include("partials/header"); -%>
+
+
+  <div class="py-5 text-center">
+    <img class="d-block mx-auto mb-4" src="images/archwayLogo.png" alt="" width="72" height="72">
+    <h2>Available Free Temporary Signage</h2>
+    <p class="lead">You May Request up to 25 signs</p>
+  </div>
+
+<form class="" action="freeSigns" method="post">
+  <div class="card-deck mb-3 text-center">
+      <div class="card mb-4 shadow-sm">
+        <div class="card-header">
+          <h4 class="my-0 font-weight-normal">Restroom/Info (8" x 6")</h4>
+        </div>
+        <div class="card-body infoSignCont">
+
+
+              <% infoSigns.forEach(function(sign){ %>
+              <div class="infoSignSelector">
+                <img class="infoSignImg" src="/images/<%=sign%>.png">
+                <input type="number" value="0" name="<%=sign%>" min="0" max="25">
+              </div>
+              <% }); %>
+
+        </div>
+      </div>
+      <div class="card mb-4 shadow-sm">
+        <div class="card-header">
+          <h4 class="my-0 font-weight-normal">Room IDs (2" x 8.5")</h4>
+        </div>
+        <div class="card-body">
+
+          <% roomIDs.forEach(function(sign){ %>
+          <div>
+            <img class="roomSignImg" src="/images/<%=sign%>.png">
+            <input type="number" value="0" name="<%=sign%>" min="0" max="25">
+          </div>
+          <% }); %>
+
+        </div>
+      </div>
+
+  </div>
+  <p>These temporary signs are not made from the same durable material as permenant Room Identificaton signs. Please use only "Remo 2" tape on these signs (This is a spoecial removable double sided tape. Anything else may damage the sign or paint/drywall of walls.)</p>
+  <br />
+  <!-- <div class="container-tape">
+    <img class="remoImg" src="/images/remoTwoRoll.webp">
+    <button type="button" class="btn btn-sm btn-inline-block btn-outline-primary" name="button">Add to Order</button>
+  </div> -->
+
+  <button type="submit" class="btn btn-lg btn-block btn-primary">submit</button>
+
+</form>
+
+
+
+<%- include("partials/footer"); -%>
