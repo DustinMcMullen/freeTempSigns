@@ -91,6 +91,6 @@ res.render("checkout", {requestCount: signCount, customerFirstName: customerFNam
 });
 
 
-app.listen(3000, function() {
+app.listen(process.env.PORT || 3000, function() {
   console.log("freeTempSigns app started on port 3000")
 });
